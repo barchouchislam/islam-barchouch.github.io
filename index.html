@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islam Barchouch — Docteur en Informatique, ATER Université Paris 8</title>
+<meta name="description" content="Page personnelle d'Islam Barchouch, Docteur en Informatique, ATER à l'IUT de Montreuil (Université Paris 8), laboratoire LIASD, équipe EID.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FDFBF5;
+    --card: #FFFFFF;
+    --ink: #1B1714;
+    --ink-soft: #3E362D;
+    --ink-mute: #7A6F60;
+    --accent: #7A2E26;
+    --accent-soft: #A64A3F;
+    --brass: #9C7A3F;
+    --rule: #E5DFCE;
+    --rule-soft: #EFEADB;
+    --serif: "Fraunces", "Times New Roman", serif;
+    --sans: "Instrument Sans", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 14, "SOFT" 50;
+    font-weight: 400;
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  /* ============ TOP BAR ============ */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--card);
+    padding: 14px 32px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .topbar .crest { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); }
+  .topbar .crest strong {
+    font-family: var(--serif);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0;
+  }
+  .topbar .crest .sep { color: var(--accent); opacity: 0.5; }
+  .topbar .qualif {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 0;
+  }
+
+  /* ============ LAYOUT ============ */
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ============ SIDEBAR ============ */
+  aside.sidebar {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+aside.sidebar::-webkit-scrollbar { width: 10px; }
+aside.sidebar::-webkit-scrollbar-track { background: var(--rule-soft); border-radius: 5px; }
+aside.sidebar::-webkit-scrollbar-thumb { background: var(--brass); border-radius: 5px; border: 2px solid var(--rule-soft); }
+aside.sidebar::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+aside.sidebar { scrollbar-width: thin; scrollbar-color: var(--brass) var(--rule-soft); }
+
+.photo-frame {
+    width: 240px;
+    margin: 0 auto 22px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: 0 1px 0 rgba(27, 23, 20, 0.04), 0 8px 24px rgba(27, 23, 20, 0.06);
+  }
+.photo-frame::before { content: none; }
+.photo-frame::after { content: none; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; display: block; }
+
+  .photo-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    background: linear-gradient(145deg, #F7F1E4 0%, #EFE7D4 100%);
+    color: var(--ink-mute);
+    font-family: var(--sans);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-align: center;
+    padding: 16px;
+  }
+  .photo-placeholder svg { width: 34px; height: 34px; opacity: 0.4; }
+  .photo-placeholder .fname {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  .sidebar-name {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 72, "SOFT" 80;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
+  }
+  .sidebar-name .given { color: var(--ink-soft); font-weight: 300; }
+  .sidebar-name .family { color: var(--ink); }
+
+  .sidebar-role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--accent);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-block {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .sidebar-block:last-of-type { border-bottom: none; }
+
+  .sidebar-block .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .aff-item { font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 12px; }
+  .aff-item:last-child { margin-bottom: 0; }
+  .aff-item strong {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .aff-item .primary { color: var(--ink); font-weight: 500; }
+  .aff-item .secondary { color: var(--ink-mute); font-style: italic; font-size: 12.5px; }
+
+  .contact-line {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .contact-line:hover { color: var(--accent); }
+  .contact-line svg { width: 13px; height: 13px; color: var(--accent); flex-shrink: 0; }
+
+  .cv-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: background 0.2s;
+  }
+  .cv-btn:hover { background: var(--accent); }
+  .cv-btn svg { width: 13px; height: 13px; }
+
+  nav.toc { font-family: var(--sans); font-size: 12.5px; line-height: 1.9; }
+  nav.toc a {
+    display: block;
+    color: var(--ink-mute);
+    text-decoration: none;
+    padding-left: 14px;
+    position: relative;
+    transition: color 0.15s, padding-left 0.15s;
+  }
+  nav.toc a::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 50%;
+    width: 6px; height: 1px;
+    background: var(--rule);
+    transform: translateY(-50%);
+    transition: background 0.15s, width 0.15s;
+  }
+  nav.toc a:hover, nav.toc a.active {
+    color: var(--accent);
+    padding-left: 18px;
+  }
+  nav.toc a:hover::before, nav.toc a.active::before {
+    background: var(--accent);
+    width: 10px;
+  }
+
+  /* ============ MAIN ============ */
+  main { min-width: 0; }
+
+  section.content { padding-bottom: 64px; scroll-margin-top: 24px; }
+  section.content + section.content { padding-top: 56px; border-top: 1px solid var(--rule); }
+
+  h2.sec-title {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 72, "SOFT" 70;
+    font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 38px);
+    letter-spacing: -0.018em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  }
+  h2.sec-title .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  h2.sec-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+  .lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+  .lead p + p { margin-top: 0.9em; }
+  .lead em { color: var(--ink); font-style: italic; }
+
+  /* ============ AXES ============ */
+  ol.axes { list-style: none; counter-reset: axes; border-top: 1px solid var(--rule); }
+  ol.axes li {
+    counter-increment: axes;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  ol.axes li::before {
+    content: counter(axes, upper-roman) ".";
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent);
+    text-align: right;
+    padding-right: 4px;
+  }
+  ol.axes li span {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-variation-settings: "opsz" 36;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ============ RESEARCH CARDS ============ */
+  .research-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .research-card::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 32px;
+    width: 48px; height: 2px;
+    background: var(--accent);
+  }
+  .research-card .card-kicker {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brass);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .research-card .card-kicker .ord {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .research-card h3 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 36;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .research-card .card-meta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .research-card p {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .research-card p:last-child { margin-bottom: 0; }
+  .research-card ol.steps { list-style: none; counter-reset: steps; margin-top: 14px; }
+  .research-card ol.steps li {
+    counter-increment: steps;
+    padding: 10px 0 10px 38px;
+    position: relative;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .research-card ol.steps li:last-child { border-bottom: none; }
+  .research-card ol.steps li::before {
+    content: counter(steps, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 12px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--brass);
+    font-size: 13px;
+  }
+  .research-card ol.steps li strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-family: var(--serif);
+    font-size: 15px;
+  }
+
+  /* ============ THESIS ============ */
+  .thesis {
+    background: linear-gradient(180deg, #FFFDF7 0%, var(--card) 100%);
+    border: 1px solid var(--rule);
+    padding: 34px 36px;
+    position: relative;
+  }
+  .thesis-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .thesis-header h3 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 48;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .thesis-date {
+    text-align: right;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+  }
+  .thesis-date strong {
+    font-family: var(--serif);
+    font-style: italic;
+    display: block;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .thesis-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px 28px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .thesis-meta dt {
+    font-family: var(--sans);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+  }
+  .thesis-meta dd { line-height: 1.5; }
+  .thesis-meta dd em { color: var(--ink); font-style: normal; font-weight: 500; }
+  .thesis p {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .thesis .twin-axes {
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--rule);
+  }
+  .twin-axes h4 {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brass);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .twin-axes ul { list-style: none; }
+  .twin-axes li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .twin-axes li:last-child { border-bottom: none; }
+  .twin-axes li strong {
+    display: block;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 15.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ============ ENCADREMENT ============ */
+  .sup-item { padding: 20px 0; border-bottom: 1px solid var(--rule-soft); }
+  .sup-item:last-child { border-bottom: none; }
+  .sup-item h3 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 36;
+    font-weight: 500;
+    font-size: 17.5px;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .sup-item .sup-meta {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--brass);
+    margin-bottom: 10px;
+  }
+  .sup-item p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .sup-item .collab {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+
+  /* ============ PUBLICATIONS ============ */
+  .pub-group { margin-bottom: 40px; }
+  .pub-group h3 {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .pub-group h3 .count {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--brass);
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+  }
+  .pub {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 46px 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .pub:last-child { border-bottom: none; }
+  .pub .year {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent);
+    padding-top: 3px;
+  }
+  .pub .body { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
+  .pub .body .title {
+    color: var(--ink);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .pub .body .authors { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 3px; }
+  .pub .body .authors .me { color: var(--accent); font-weight: 500; }
+  .pub .body .venue { font-style: italic; color: var(--ink-mute); font-size: 13.5px; }
+  .pub a.doi {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--ink-mute);
+    margin-top: 4px;
+    display: inline-block;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .pub a.doi:hover { color: var(--accent); border-color: var(--accent); }
+  .pub .badge {
+    font-family: var(--sans);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    padding: 3px 7px;
+    border: 1px solid var(--brass);
+    border-radius: 2px;
+    white-space: nowrap;
+    align-self: start;
+    font-weight: 500;
+  }
+  .pub .badge.submitted { color: var(--accent); border-color: var(--accent); }
+
+  /* ============ TEACHING ============ */
+  .teach-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin-bottom: 28px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+  }
+  .stat {
+    padding: 20px 16px;
+    border-right: 1px solid var(--rule-soft);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 72;
+    font-weight: 300;
+    font-size: 34px;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  table.teach { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.teach thead th {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    text-align: left;
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  table.teach tbody td {
+    padding: 12px 14px 12px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  table.teach tbody tr:last-child td { border-bottom: none; }
+  table.teach .course { font-family: var(--serif); color: var(--ink); font-size: 14.5px; }
+  table.teach .course small {
+    display: block;
+    color: var(--ink-mute);
+    font-family: var(--sans);
+    font-size: 11.5px;
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+  table.teach .hrs {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--brass);
+    text-align: right;
+    white-space: nowrap;
+    font-size: 13.5px;
+  }
+  table.teach .level {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    white-space: nowrap;
+  }
+  table.teach .resp {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 12.5px;
+    margin-left: 6px;
+  }
+
+  /* ============ FORMATION ============ */
+  .edu {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .edu:last-child { border-bottom: none; }
+  .edu .years {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 14px;
+    padding-top: 2px;
+  }
+  .edu h3 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 36;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .edu .inst {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .edu .detail {
+    font-size: 13.5px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+  .edu .detail em { color: var(--ink-soft); font-style: italic; }
+
+  /* ============ FOOTER ============ */
+  footer.site {
+    border-top: 1px solid var(--rule);
+    padding: 32px;
+    background: var(--card);
+    font-family: var(--sans);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+  footer.site em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 0;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 920px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 32px 22px 60px;
+    }
+    aside.sidebar {
+      position: static;
+      max-height: none;
+      padding-right: 0;
+    }
+    .photo-frame { max-width: 260px; margin-left: auto; margin-right: auto; }
+    nav.toc { display: none; }
+  }
+  @media (max-width: 640px) {
+    .topbar { padding: 12px 20px; font-size: 11.5px; }
+    .research-card { padding: 24px 22px; }
+    .thesis { padding: 24px 22px; }
+    .thesis-header { grid-template-columns: 1fr; }
+    .thesis-date { text-align: left; }
+    .pub { grid-template-columns: 40px 1fr; }
+    .pub .badge { grid-column: 2; justify-self: start; margin-top: 4px; }
+    .teach-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--rule-soft); }
+    .edu { grid-template-columns: 1fr; gap: 4px; }
+    table.teach .level { display: none; }
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+.lead p,
+.thesis p,
+.research-card p,
+.sup-item p {
+  text-align: justify;
+  hyphens: auto;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="crest">
+    <strong>Islam Barchouch</strong>
+    <span class="sep">·</span>
+    <span>Docteur en Informatique</span>
+  </div>
+  <div class="qualif">Qualifié aux fonctions de Maître de Conférences — CNU section 27</div>
+</div>
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+
+    <figure class="photo-frame">
+      <img src="photo.jpg" alt="Islam Barchouch"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="photo-placeholder" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="9" r="4"/>
+          <path d="M3 21c1.5-4.5 5-7 9-7s7.5 2.5 9 7"/>
+        </svg>
+        <span>Photo</span>
+        <span class="fname">photo.jpg</span>
+      </div>
+    </figure>
+
+    <h1 class="sidebar-name">
+      <span class="given">Islam</span><br>
+      <span class="family">BARCHOUCH</span>
+    </h1>
+    <p class="sidebar-role">
+      Attaché Temporaire d'Enseignement et de Recherche (ATER)
+    </p>
+
+    <div class="sidebar-block">
+      <div class="label">Affiliations</div>
+      <div class="aff-item">
+        <strong>Enseignement</strong>
+        <div class="primary">Département Informatique, IUT de Montreuil</div>
+        <div class="secondary">Université Paris 8 Vincennes — Saint-Denis</div>
+      </div>
+      <div class="aff-item" style="margin-top: 14px;">
+        <strong>Recherche</strong>
+        <div class="primary">Laboratoire d'Intelligence Artificielle<br>et Sémantique des Données (LIASD)</div>
+        <div class="secondary">équipe Espaces Intelligents de Données (EID)</div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="label">Contact</div>
+      <a href="mailto:barchouchislam@gmail.com" class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 7 9-7"/></svg>
+        barchouchislam@gmail.com
+      </a>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Île-de-France, France
+      </div>
+      <a href="CV.pdf" class="cv-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/></svg>
+        CV (PDF)
+      </a>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="label">Sommaire</div>
+      <nav class="toc">
+        <a href="#presentation">Présentation</a>
+        <a href="#axes">Axes de recherche</a>
+        <a href="#these">Travaux de thèse</a>
+        <a href="#projets">Projets en cours</a>
+        <a href="#encadrement">Encadrement</a>
+        <a href="#publications">Publications</a>
+        <a href="#enseignement">Enseignement</a>
+        <a href="#formation">Formation</a>
+      </nav>
+    </div>
+
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <section class="content" id="presentation">
+      <h2 class="sec-title"><span class="num">i.</span>Présentation</h2>
+      <div class="lead">
+        <p>
+          Docteur en informatique diplômé de l'<em>Institut National des Sciences Appliquées de Rennes</em> (INSA Rennes),
+          je suis actuellement ATER à l'IUT de Montreuil — Université Paris 8, et mène mes activités de recherche
+          au <em>Laboratoire d'Intelligence Artificielle et Sémantique des Données</em> (LIASD),
+          au sein de l'équipe Espaces Intelligents de Données (EID).
+        </p>
+        <p>
+          Ma thèse, soutenue le 3 décembre 2025 à l'INSA Rennes, a été menée dans le cadre du projet ANR SKETCH
+          (21-CE38-0009) au sein de l'équipe <em>Systems for Hybrid Analysis of DOCuments</em> (SHADOC)
+          de l'<em>Institut de Recherche en Informatique et Systèmes Aléatoires</em> (IRISA). Elle a porté sur
+          la conception d'un système tutoriel intelligent pour l'apprentissage par le dessin de l'anatomie basé sur l'interprétation à la volée de croquis
+          manuscrits semi-structurés.
+        </p>
+        <p>
+          Je poursuis aujourd'hui mes recherches autour de l'alignement de graphes hétérogènes par signatures
+          structurelles et sémantiques, et des systèmes de recommandation argumentatifs combinant grands modèles
+          de langage et raisonnement sur graphes d'arguments.
+        </p>
+      </div>
+    </section>
+
+    <section class="content" id="axes">
+      <h2 class="sec-title"><span class="num">ii.</span>Axes de <em>recherche</em></h2>
+      <ol class="axes">
+        <li><span>Modélisation des connaissances expertes</span></li>
+        <li><span>Intelligence artificielle explicable et interprétabilité des modèles hybrides</span></li>
+        <li><span>Conception centrée utilisateur pour les systèmes interactifs</span></li>
+        <li><span>Reconnaissance de formes complexes et interprétation de documents manuscrits</span></li>
+        <li><span>Systèmes tutoriels intelligents</span></li>
+      </ol>
+    </section>
+
+    <section class="content" id="these">
+      <h2 class="sec-title"><span class="num">iii.</span>Travaux de <em>thèse</em></h2>
+
+      <div class="thesis">
+        <div class="thesis-header">
+          <h3>Conception d'un Système Tutoriel Intelligent basé sur l'interprétation à la volée de croquis manuscrits semi-structurés</h3>
+          <div class="thesis-date">
+            Soutenue le
+            <strong>3 décembre 2025</strong>
+          </div>
+        </div>
+
+        <dl class="thesis-meta"> 
+          <div>
+            <dt>Établissement</dt>
+            <dd><em>Institut National des Sciences Appliquées de Rennes</em> (INSA Rennes)</dd>
+          </div>
+          <div>
+            <dt>Unité de recherche</dt>
+            <dd><em>Institut de Recherche en Informatique et Systèmes Aléatoires</em> (IRISA) — équipe <em>Systems for Hybrid Analysis of DOCuments</em> (SHADOC)</dd>
+          </div>
+          <div>
+            <dt>École doctorale</dt>
+            <dd>Mathématiques, télécommunications, informatique, signal, systèmes, électronique (MATISSE)</dd>
+          </div>
+          <div>
+            <dt>Projet</dt>
+            <dd>ANR SKETCH (21-CE38-0009)</dd>
+          </div>
+          <div>
+            <dt>Directeur de thèse</dt>
+            <dd><em>Éric Anquetil</em>, Professeur des Universités, INSA Rennes</dd>
+          </div>
+          <div>
+            <dt>Co-encadrante</dt>
+            <dd><em>Nathalie Girard</em>, Maître de Conférences, Université de Rennes</dd>
+          </div>
+        </dl>
+
+	<p>
+          Mes travaux de thèse portent sur la conception du système tutoriel intelligent <em>IntuiSketch</em>,
+          adapté à un contexte d'apprentissage par le dessin de l'anatomie sur tablette stylet.
+          Le système s'articule autour de <em>deux modes d'utilisation</em> — un mode auteur,
+          dans lequel l'enseignant définit l'exercice étape par étape, les entités à dessiner et les
+          consignes associées, et un mode étudiant, dans lequel l'apprenant réalise cet exercice
+          sur une tablette stylet — et de <em>deux moteurs complémentaires</em> : un moteur de
+          reconnaissance, chargé d'interpréter à la volée les croquis manuscrits, et un moteur
+          de supervision, chargé de suivre les progrès de l'apprenant et de fournir des feedbacks appropriés.
+        </p>
+
+        <div class="twin-axes">
+          <h4>Deux axes complémentaires</h4>
+          <ul>
+            <li>
+              <strong>Interprétation à la volée de croquis manuscrits semi-structurés</strong>
+              en se basant sur le formalisme CD–CMG (<em>Context-Driven Constraint Multiset Grammar</em>),
+              une famille de grammaires formelles bidimensionnelles, intégrant un classifieur
+              capable d'apprendre à partir de peu d'exemples ainsi que des mécanismes de logique floue.
+            </li>
+            <li>
+              <strong>Supervision en temps réel des productions des apprenants et génération de feedbacks adaptés</strong>
+              reposant sur la représentation de la connaissance experte d'un exercice
+              sous la forme d'un graphe de connaissances généré automatiquement.
+            </li>
+          </ul>
+        </div>
+       </div>
+    </section>
+
+    <section class="content" id="projets">
+      <h2 class="sec-title"><span class="num">iv.</span>Projets de recherche <em>en cours</em></h2>
+
+      <p class="lead" style="margin-bottom: 32px;">
+        Dans le cadre de mon poste d'ATER au LIASD, mes travaux s'inscrivent dans les thèmes de recherche
+        de l'équipe EID, en particulier le <em>Thème 3 : Plongement de graphes multimodaux</em>,
+        qui vise à apprendre des représentations de graphes pour modéliser et analyser des données
+        hétérogènes et multimodales.
+      </p>
+
+      <article class="research-card">
+        <div class="card-kicker"><span class="ord">№&nbsp;01</span>Projet de recherche</div>
+        <h3>Alignement de graphes hétérogènes par signatures structurelles et sémantiques</h3>
+        <div class="card-meta">avec M. Mario Cataldi &amp; M. Jinfeng Zhong, Maîtres de Conférences, Université Paris 8</div>
+        <p>
+          L'objectif est d'analyser un graphe construit à partir de données relationnelles,
+          où chaque nœud représente une entité et chaque arête représente une relation telle qu'une interaction,
+          une co-occurrence ou un lien sémantique. L'approche vise à comparer deux graphes distincts —
+          issus de sources différentes, de collections indépendantes ou de périodes temporelles distinctes —
+          afin d'identifier les situations dans lesquelles deux nœuds, bien que décrits par des identifiants
+          différents ou en présence de bruit et d'informations incomplètes, correspondent en réalité à la même entité.
+        </p>
+        <ol class="steps">
+          <li>
+            <strong>Caractérisation structurelle des nœuds</strong>
+            Construction, pour chaque nœud, d'une représentation décrivant les relations qui l'entourent
+            ainsi que les motifs structurels présents dans son voisinage.
+          </li>
+          <li>
+            <strong>Propagation des informations structurelles</strong>
+            Propagation contrôlée d'informations dans le voisinage du nœud, afin de capturer les motifs
+            de connectivité locaux et la position structurelle des nœuds dans le graphe.
+          </li>
+          <li>
+            <strong>Intégration des informations sémantiques</strong>
+            Enrichissement des représentations structurelles par les informations sémantiques associées
+            aux nœuds, intégrées dans un vecteur de signature conjointe.
+          </li>
+          <li>
+            <strong>Alignement des graphes</strong>
+            Mise en correspondance des nœuds entre graphes hétérogènes sur la base des signatures obtenues.
+          </li>
+        </ol>
+      </article>
+
+      <article class="research-card">
+        <div class="card-kicker"><span class="ord">№&nbsp;02</span>Projet de recherche</div>
+        <h3>Systèmes de recommandation argumentatifs basés sur des LLMs</h3>
+        <div class="card-meta">avec M. Jinfeng Zhong, Maître de Conférences, Université Paris 8</div>
+        <p>
+          L'objectif est de concevoir et d'évaluer un pipeline de recommandation produisant des explications
+          argumentatives structurées, explicables et contestables, en combinant les capacités de génération
+          des LLMs et un raisonnement explicite sur des graphes d'arguments.
+        </p>
+        <ol class="steps">
+          <li>
+            <strong>Construction du graphe d'arguments</strong>
+            Construction automatique, à l'aide d'un LLM, d'un graphe d'arguments (arguments pour/contre,
+            relations de support et d'attaque) à partir de données textuelles : avis utilisateurs,
+            descriptions d'items, préférences.
+          </li>
+          <li>
+            <strong>Génération de la recommandation</strong>
+            Raisonnement sur le graphe afin de produire une recommandation accompagnée d'une explication
+            structurée mettant en évidence les arguments dominants et les contre-arguments principaux.
+          </li>
+          <li>
+            <strong>Analyse de la contestabilité</strong>
+            Étude de l'évolution de la recommandation lorsque certains arguments sont contestés ou que
+            les préférences utilisateur changent.
+          </li>
+          </ol>
+      </article>
+    </section>
+
+    <section class="content" id="encadrement">
+      <h2 class="sec-title"><span class="num">v.</span>Encadrement <em>de stages</em></h2>
+
+      <div class="sup-item">
+        <h3>Enrichissement d'ontologies par approche neuro-symbolique — Génération et validation de nouveaux concepts à l'aide d'un LLM</h3>
+        <div class="sup-meta">Master de Recherche M2 · LIASD, équipe EID · 2026</div>
+        <p>
+          Exploitation d'un modèle de langage pour générer de nouveaux concepts, propriétés et axiomes,
+          puis validation automatique de ces propositions à l'aide d'un moteur de raisonnement symbolique OWL.
+          Le stage prévoit la conception d'un pipeline complet : extraction automatique de candidats à partir
+          de textes, génération d'axiomes (<em>domain</em>, <em>range</em>, hiérarchie), et vérification de cohérence.
+        </p>
+        <div class="collab">Co-encadrement avec M. Thamer Mecharnia, M. Jinfeng Zhong et Mme Sihem Belabbes.</div>
+      </div>
+
+      <div class="sup-item">
+        <h3>Argumentation et LLMs : vers des recommandations explicables et contestables</h3>
+        <div class="sup-meta">Master de Recherche M2 · LIASD, équipe EID · 2026</div>
+        <p>
+          Conception d'un cadre combinant génération par LLM et raisonnement argumentatif explicite
+          afin de produire des recommandations explicables et contestables.
+        </p>
+        <div class="collab">Co-encadrement avec M. Jinfeng Zhong.</div>
+      </div>
+    </section>
+
+    <section class="content" id="publications">
+      <h2 class="sec-title"><span class="num">vi.</span>Publications</h2>
+
+      <div class="pub-group">
+        <h3>Articles de revues internationales à comité de lecture <span class="count">2 soumis</span></h3>
+
+        <div class="pub">
+          <div class="year">2026</div>
+          <div class="body">
+            <span class="title">Automatic Grammar Extension to Handle Multi-Stroke Drawing Recognition</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, S. Serre, E. Anquetil, N. Girard</div>
+            <div class="venue">Pattern Recognition Letters (PRL)</div>
+          </div>
+          <span class="badge submitted">Soumis</span>
+        </div>
+
+        <div class="pub">
+          <div class="year">2026</div>
+          <div class="body">
+            <span class="title">Apprendre l'anatomie en dessinant sur tablette : effets du type d'activité et des capacités visuospatiales sur l'apprentissage et les perceptions d'étudiant·es en kinésithérapie</span>
+            <div class="authors">L. Leconte, E. Jamet, <span class="me">I. Barchouch</span>, E. Anquetil, N. Girard</div>
+            <div class="venue">Environnements Informatiques pour l'Apprentissage Humain (EIAH)</div>
+          </div>
+          <span class="badge submitted">Soumis</span>
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <h3>Articles de conférences internationales à comité de lecture <span class="count">3 publiés · 1 soumis</span></h3>
+
+        <div class="pub">
+          <div class="year">2025</div>
+          <div class="body">
+            <span class="title">Improving Feedback Generation in a Drawing-Based ITS</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, N. Girard, E. Anquetil, L. Leconte, E. Jamet</div>
+            <div class="venue">International Conference on Intelligent Tutoring Systems (ITS), LNCS, Springer, pp. 259–269</div>
+            <a class="doi" href="https://doi.org/10.1007/978-3-031-98281-1_21" target="_blank" rel="noopener">doi.org/10.1007/978-3-031-98281-1_21</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="year">2025</div>
+          <div class="body">
+            <span class="title">Enhancement of IntuiSketch ITS with teacher's planned sequence to improve learning by drawing</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, S. Serre, E. Anquetil, N. Girard</div>
+            <div class="venue">International Graphonomics Society Conference (IGS)</div>
+            <a class="doi" href="https://hal.science/hal-05455715" target="_blank" rel="noopener">hal.science/hal-05455715</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="year">2023</div>
+          <div class="body">
+            <span class="title">IntuiSketch, a Pen-Based Tutoring System for Anatomy Sketch Learning</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, O. Krichen, E. Anquetil, N. Girard</div>
+            <div class="venue">Graphonomics in Human Body Movement (IGS), LNCS vol. 14285, Springer, pp. 61–74</div>
+            <a class="doi" href="https://doi.org/10.1007/978-3-031-45461-5_5" target="_blank" rel="noopener">doi.org/10.1007/978-3-031-45461-5_5</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="year">2026</div>
+          <div class="body">
+            <span class="title">Aligning Nodes, Bridging Graphs: A Structure- and Context-Aware Approach</span>
+            <div class="authors">M. Cataldi, J. Zhong, <span class="me">I. Barchouch</span></div>
+            <div class="venue">International Conference on Artificial Neural Networks (ICANN)</div>
+          </div>
+          <span class="badge submitted">Soumis</span>
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <h3>Communications, symposiums &amp; posters <span class="count">3 contributions</span></h3>
+
+        <div class="pub">
+          <div class="year">2024</div>
+          <div class="body">
+            <span class="title">Interpretation of semi-structured traces for the conception of a Pen-Based Intelligent Tutorial System</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, E. Anquetil, N. Girard, O. Krichen</div>
+            <div class="venue">Smart Learning Ecosystems and Regional Development (SLERD) — Doctoral Consortium</div>
+            <a class="doi" href="https://app.block.co/certificate/1812e5b8-2846-4afc-93e0-bbf598f5365b/" target="_blank" rel="noopener">Certificat finaliste</a>
+          </div>
+          <span class="badge">Finaliste</span>
+        </div>
+
+        <div class="pub">
+          <div class="year">2024</div>
+          <div class="body">
+            <span class="title">Interpretation of semi-structured hand-drawn sketches for the conception of a Pen-Based Intelligent Tutorial System</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, E. Anquetil, N. Girard, O. Krichen</div>
+            <div class="venue">Symposium International Francophone sur l'Écrit et le Document (SIFED), Nantes</div>
+            <a class="doi" href="https://hal.archives-ouvertes.fr/hal-04876641" target="_blank" rel="noopener">hal-04876641</a>
+          </div>
+          <span class="badge">Poster</span>
+        </div>
+
+        <div class="pub">
+          <div class="year">2023</div>
+          <div class="body">
+            <span class="title">Système tutoriel intelligent pour l'apprentissage par croquis — Projet Sketch</span>
+            <div class="authors"><span class="me">I. Barchouch</span>, E. Anquetil, N. Girard, O. Krichen</div>
+            <div class="venue">Symposium International Francophone sur l'Écrit et le Document (SIFED), Paris</div>
+            <a class="doi" href="https://hal.archives-ouvertes.fr/hal-04129595" target="_blank" rel="noopener">hal-04129595</a>
+          </div>
+          <span class="badge">Poster</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="enseignement">
+      <h2 class="sec-title"><span class="num">vii.</span>Enseignement</h2>
+
+<div class="teach-stats">
+    <div class="stat">
+      <span class="num">271 h</span>
+      <span class="label">Équivalent TD</span>
+    </div>
+    <div class="stat">
+      <span class="num">2</span>
+      <span class="label">Modules responsable</span>
+    </div>
+  </div>
+
+  <table class="teach">
+        <thead>
+          <tr>
+            <th style="width: 50%;">Ressource</th>
+            <th>Niveau</th>
+            <th style="text-align: right;">Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="course">
+              Qualité et Non-Relationnel<span class="resp">· responsable</span>
+              <small>SQL (dépendances fonctionnelles, normalisation) et NoSQL (MongoDB, Neo4j) — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S4</td>
+            <td class="hrs">58 h CM/TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Sensibilisation à la programmation multimédia<span class="resp">· responsable</span>
+              <small>Traitement d'images avec Python — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S5</td>
+            <td class="hrs">9 h CM/TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Introduction aux bases de données SQL
+              <small>Requêtes, jointures, modélisation MCD avec PostgreSQL — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S1</td>
+            <td class="hrs">39 h TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Exploitation d'une base de données
+              <small>requêtes avancées, vues, fenêtrage avec pgadmin4 — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S2</td>
+            <td class="hrs">38 h TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Introduction aux systèmes d'exploitation
+              <small>Bash, entrées/sorties, processus — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S1</td>
+            <td class="hrs">23 h TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Introduction à l'architecture des ordinateurs
+              <small>Conversions de bases, langage C — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S1</td>
+            <td class="hrs">21 h TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Programmation orientée objet en Java
+              <small>Héritage, interfaces, algorithmique — INSA Rennes</small>
+            </td>
+            <td class="level">2STPI S4</td>
+            <td class="hrs">32 h CM/TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Introduction aux bases de données SQL
+              <small>Requêtes, modélisation MCD — ISTIC Rennes</small>
+            </td>
+            <td class="level">L2 ISTN</td>
+            <td class="hrs">15 h TD/TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              Introduction à la programmation Python
+              <small>Structures de contrôle, fonctions — Université de Rennes</small>
+            </td>
+            <td class="level">L1 PCSTM</td>
+            <td class="hrs">32 h TP</td>
+          </tr>
+          <tr>
+            <td class="course">
+              SAÉ — Installation d'un poste de travail
+              <small>VirtualBox, Ubuntu, PostgreSQL — IUT de Montreuil</small>
+            </td>
+            <td class="level">BUT S1</td>
+            <td class="hrs">4 h éq. TD</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content" id="formation">
+      <h2 class="sec-title"><span class="num">viii.</span>Formation</h2>
+
+      <div class="edu">
+        <div class="years">2022 — 2025</div>
+        <div>
+          <h3>Doctorat en Informatique</h3>
+          <div class="inst">Institut National des Sciences Appliquées de Rennes (INSA Rennes)</div>
+          <div class="detail">
+            Laboratoire <em>Institut de Recherche en Informatique et Systèmes Aléatoires</em> (IRISA),
+            équipe SHADOC. École doctorale MATISSE. Thèse soutenue le 3 décembre 2025.
+          </div>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="years">2021 — 2022</div>
+        <div>
+          <h3>Master de Recherche M2 — Traitement de l'Information et Complexité du Vivant</h3>
+          <div class="inst">Parcours Son, Perception, Image · École Nationale d'Ingénieurs de Tunis (ENIT)</div>
+          <div class="detail">
+            Mémoire sur l'informatique décisionnelle pilotée par l'IA dans le cadre du e-learning.
+          </div>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="years">2019 — 2022</div>
+        <div>
+          <h3>Diplôme National d'Ingénieur en Télécommunications</h3>
+          <div class="inst">Parcours Science des Données · École Nationale d'Ingénieurs de Tunis (ENIT)</div>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="years">2017 — 2019</div>
+        <div>
+          <h3>Cycle préparatoire aux études d'ingénieur</h3>
+          <div class="inst">Institut Préparatoire aux Études d'Ingénieurs d'El Manar (IPEIEM)</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<footer class="site">
+  © 2026 Islam Barchouch · Page personnelle · <em>Île-de-France</em> · Dernière mise à jour : avril 2026
+</footer>
+
+<script>
+  (function() {
+    const links = document.querySelectorAll('nav.toc a');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+    function update() {
+      const y = window.scrollY + 120;
+      let active = 0;
+      sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
+      links.forEach((a, i) => a.classList.toggle('active', i === active));
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+
+</body>
+</html>
